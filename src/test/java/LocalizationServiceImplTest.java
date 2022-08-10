@@ -14,4 +14,12 @@ public class LocalizationServiceImplTest {
         country= localizationService.locale(Country.RUSSIA);
         assertEquals(true, country.equals("Добро пожаловать"));
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"Добро пожаловать","Welcome"})
+    void localeEn(String country){
+        LocalizationServiceImpl localizationService=new LocalizationServiceImpl();
+        country= localizationService.locale(Country.USA);
+        assertEquals(true, country.equals("Welcome"));
+    }
 }
